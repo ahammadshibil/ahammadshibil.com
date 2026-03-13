@@ -3,17 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahammad Shibil</title>
-  <meta name="description" content="Biology researcher turned deeptech VC. Writing about biology, AI, and investing at the frontier." />
-  <meta property="og:title" content="Ahammad Shibil" />
-  <meta property="og:description" content="Biology researcher turned deeptech VC. Writing about biology, AI, and investing at the frontier." />
-  <meta property="og:url" content="https://ahammadshibil.com" />
+  <title>Ahammad Shibil — Biology, Capital, Writing</title>
+  <meta name="description" content="Researcher turned investor. Investment analyst at Speciale Invest. Writing about biology, AI, and deeptech at Atoms & Cells. Founding something in bio-AI." />
+  <meta name="author" content="Ahammad Shibil" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ahammad Shibil — Biology, Capital, Writing" />
+  <meta property="og:description" content="Researcher turned investor. Writing about biology, AI, and deeptech at Atoms & Cells. Founding something in bio-AI." />
+  <meta property="og:url" content="https://ahammadshibil.com" />
+  <meta property="og:site_name" content="Ahammad Shibil" />
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@ShibilAhammad" />
+  <meta name="twitter:creator" content="@ShibilAhammad" />
+  <meta name="twitter:title" content="Ahammad Shibil — Biology, Capital, Writing" />
+  <meta name="twitter:description" content="Researcher turned investor. Writing about biology, AI, and deeptech at Atoms & Cells. Founding something in bio-AI." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #f7f4ef;
@@ -22,8 +33,7 @@
       --accent: #2d5a3d;
       --rule: #ddd8d0;
       --card: #ffffff;
-      --font-body: 'EB Garamond', Georgia, serif;
-      --font-mono: 'DM Mono', 'Courier New', monospace;
+      --max: 660px;
     }
     [data-theme="dark"] {
       --bg: #141210;
@@ -34,728 +44,1104 @@
       --card: #1e1b18;
     }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ── DARK TOGGLE ── */
+    .theme-toggle {
+      background: none; border: none; cursor: pointer;
+      font-family: 'DM Mono', monospace; font-size: 0.62rem;
+      color: var(--muted); letter-spacing: 0.05em;
+      padding: 0; transition: color 0.15s; line-height: 1;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { color: var(--accent); }
 
-    body {
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.7;
-      font-size: 18px;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .container {
-      max-width: 660px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
-    }
-
-    /* Nav */
-    nav {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.25rem 1rem;
-      margin-bottom: 2.5rem;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      text-transform: lowercase;
-    }
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    nav a:hover, nav a.active { color: var(--ink); }
-    #theme-btn {
-      margin-left: auto;
-      background: none;
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      padding: 0.25rem 0.5rem;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--muted);
-      cursor: pointer;
-    }
-    #theme-btn:hover { color: var(--ink); border-color: var(--muted); }
-
-    /* Sections */
-    .view { display: none; }
-    .view.active { display: block; }
-
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.01em;
-    }
-    h2 {
-      font-size: 1.35rem;
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-    }
-    h3 {
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-    p { margin-bottom: 1rem; }
-    .intro {
-      font-size: 1.15rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    hr {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 2.5rem 0;
-    }
-
-    .label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    /* Cards */
-    .card {
+    /* ── SUBSCRIBE ── */
+    .subscribe-block {
       background: var(--card);
       border: 1px solid var(--rule);
-      border-radius: 6px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 1rem;
+      border-radius: 3px;
+      padding: 1.4rem 1.6rem;
+    }
+    .subscribe-block .sub-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+    .subscribe-block p { font-size: 0.92rem; color: #5a5550; font-style: italic; margin-bottom: 1rem; line-height: 1.55; }
+    [data-theme="dark"] .subscribe-block p { color: var(--muted); }
+    .sub-form { display: flex; gap: 0.6rem; }
+    .sub-form input[type="email"] {
+      flex: 1; font-family: 'EB Garamond', Georgia, serif; font-size: 0.94rem;
+      background: var(--bg); border: 1px solid var(--rule); border-radius: 2px;
+      padding: 0.45rem 0.75rem; color: var(--ink); outline: none;
+      transition: border-color 0.15s;
+    }
+    .sub-form input[type="email"]::placeholder { color: var(--muted); }
+    .sub-form input[type="email"]:focus { border-color: var(--accent); }
+    .sub-form button {
+      font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.06em;
+      background: var(--accent); color: #f7f4ef; border: none; border-radius: 2px;
+      padding: 0.45rem 1rem; cursor: pointer; white-space: nowrap;
+      transition: opacity 0.15s;
+    }
+    .sub-form button:hover { opacity: 0.85; }
+    .sub-success { display: none; font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--accent); letter-spacing: 0.05em; margin-top: 0.6rem; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 18px; background: var(--bg); color: var(--ink); }
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      line-height: 1.65;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2rem;
+      padding-top: 3.5rem;
+      padding-bottom: 6rem;
     }
 
-    /* Writing */
-    .filter-bar {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-    .filter-btn {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      text-transform: lowercase;
-      padding: 0.3rem 0.7rem;
+    /* ── NAV ── */
+    nav { display: flex; align-items: center; gap: 1.3rem; margin-bottom: 3.5rem; flex-wrap: wrap; }
+    .nav-left { display: flex; flex-direction: column; gap: 0.2rem; flex: 1; min-width: 160px; cursor: pointer; }
+    .site-name { font-size: 1.05rem; font-weight: 500; color: var(--ink); transition: color 0.15s; }
+    .site-sub { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.06em; color: var(--muted); font-weight: 300; }
+    .nav-left:hover .site-name { color: var(--accent); }
+    .nav-link { font-family: 'DM Mono', monospace; font-size: 0.64rem; font-weight: 300; letter-spacing: 0.04em; color: var(--muted); cursor: pointer; transition: color 0.15s; white-space: nowrap; }
+    .nav-link:hover, .nav-link.active { color: var(--accent); }
+
+    /* ── VIEWS ── */
+    .view { display: none; animation: up 0.35s ease both; }
+    .view.active { display: block; }
+    @keyframes up { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ── SHARED ── */
+    section { margin-bottom: 3rem; }
+    .label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+
+    /* ── PHOTOS ── */
+    .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2.5rem; }
+    .photo-slot {
+      aspect-ratio: 4/5;
+      background: #ece9e3;
       border: 1px solid var(--rule);
       border-radius: 3px;
-      background: none;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all 0.2s;
+      overflow: hidden;
+      position: relative;
     }
-    .filter-btn:hover { color: var(--ink); border-color: var(--muted); }
-    .filter-btn.active { color: var(--ink); border-color: var(--ink); background: var(--card); }
+    .photo-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo-slot .ph {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.06em; color: var(--muted); text-align: center; padding: 1.2rem;
+    }
+    .photo-caption { font-family: 'DM Mono', monospace; font-size: 0.58rem; color: var(--muted); letter-spacing: 0.04em; margin-top: 0.5rem; text-align: center; }
 
-    #writing-list { list-style: none; }
-    #writing-list li { border-bottom: 1px solid var(--rule); }
-    #writing-list li:last-child { border-bottom: none; }
+    /* ── PROSE ── */
+    .prose p { font-size: 0.98rem; color: #2e2a26; line-height: 1.75; margin-bottom: 1.15rem; }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose a { color: var(--accent); text-decoration: none; }
+    .prose em { font-style: italic; color: #5a5550; }
 
-    .w-row {
-      display: flex;
-      align-items: baseline;
-      gap: 1rem;
-      padding: 0.75rem 0;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    .w-row:hover { color: var(--accent); }
-    .w-row .date {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--muted);
-      flex-shrink: 0;
-      width: 3rem;
-    }
-    .w-row .w-title { flex: 1; font-size: 1.05rem; }
-    .w-row .tag {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      flex-shrink: 0;
-    }
-    .w-preview {
-      display: none;
-      padding: 0 0 1rem 4rem;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
+    /* ── INTRO ── */
+    .intro { font-size: 1rem; color: #4a4540; font-style: italic; margin-bottom: 3rem; line-height: 1.6; }
+
+    /* ── LATEST ── */
+    .latest-post { display: block; text-decoration: none; color: inherit; }
+    .latest-post h2 { font-size: 1.15rem; font-weight: 500; line-height: 1.35; margin-bottom: 0.3rem; color: var(--ink); transition: color 0.15s; }
+    .latest-post:hover h2 { color: var(--accent); }
+    .latest-post .meta { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); margin-bottom: 0.55rem; }
+    .latest-post p { font-size: 0.94rem; color: #4a4540; line-height: 1.55; }
+    .read-more { display: inline-block; margin-top: 0.5rem; font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.05em; color: var(--accent); }
+
+    /* ── TOPICS ── */
+    .topics { line-height: 2.1; font-size: 0.91rem; }
+    .topics a { color: var(--muted); text-decoration: none; transition: color 0.15s; cursor: pointer; }
+    .topics a:hover { color: var(--accent); }
+    .topics a::after { content: ', '; }
+    .topics a:last-child::after { content: ''; }
+
+    /* ── WRITING LIST ── */
+    .writing-list { list-style: none; }
+    .writing-list li { border-bottom: 1px solid var(--rule); }
+    .writing-list li:last-child { border-bottom: none; }
+    .w-row { display: flex; align-items: baseline; gap: 0.9rem; padding: 0.55rem 0; cursor: pointer; }
+    .w-row:hover .w-title { color: var(--accent); }
+    .writing-list .date { font-family: 'DM Mono', monospace; font-size: 0.58rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; min-width: 2.5rem; letter-spacing: 0.02em; }
+    .w-title { color: var(--ink); font-size: 0.96rem; line-height: 1.35; transition: color 0.15s; flex: 1; }
+    .writing-list .tag { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.06em; color: var(--muted); background: #ece9e3; padding: 0.1rem 0.4rem; border-radius: 2px; white-space: nowrap; flex-shrink: 0; align-self: center; }
+    .w-preview { display: none; padding: 0 0 1.1rem 3rem; }
     .w-preview.open { display: block; }
-    .w-preview a { color: var(--accent); font-family: var(--font-mono); font-size: 0.8rem; }
+    .w-preview p { font-size: 0.9rem; color: #5a5550; line-height: 1.65; font-style: italic; margin-bottom: 0.75rem; }
+    .w-preview a { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.05em; color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(45,90,61,0.3); padding-bottom: 1px; }
+    .w-preview a:hover { border-bottom-color: var(--accent); }
 
-    /* Poems */
-    #poem-list { list-style: none; }
-    #poem-list li { border-bottom: 1px solid var(--rule); }
+    /* ── FILTERS ── */
+    .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+    .filter-btn { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.05em; color: var(--muted); background: transparent; border: 1px solid var(--rule); padding: 0.26rem 0.7rem; border-radius: 2px; cursor: pointer; transition: all 0.15s; }
+    .filter-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .filter-btn.active { color: var(--accent); border-color: var(--accent); background: rgba(45,90,61,0.06); }
+
+    /* ── PLATFORM CARDS ── */
+    .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .platform-card { display: block; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--rule); border-radius: 3px; padding: 1.2rem 1.4rem; transition: border-color 0.2s, box-shadow 0.2s; }
+    .platform-card:hover { border-color: var(--accent); box-shadow: 0 2px 12px rgba(45,90,61,0.07); }
+    .platform-card .p-platform { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.55rem; }
+    .platform-card .p-title { font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.3; }
+    .platform-card .p-desc { font-size: 0.84rem; color: #6a6560; line-height: 1.45; font-style: italic; }
+    .platform-card .p-cta { display: inline-block; margin-top: 0.8rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.05em; color: var(--accent); }
+
+    /* ── SOCIAL CARDS ── */
+    .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .social-card { display: block; text-decoration: none; background: var(--card); border: 1px solid var(--rule); border-radius: 3px; padding: 1rem 1.2rem; transition: border-color 0.2s; }
+    .social-card:hover { border-color: var(--accent); }
+    .social-card .s-platform { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.25rem; }
+    .social-card .s-handle { font-size: 0.96rem; color: var(--ink); display: block; }
+    .social-card .s-desc { font-size: 0.82rem; color: #8a8178; margin-top: 0.2rem; font-style: italic; }
+
+    /* ── ANTI-RESUME ── */
+    .anti-resume { list-style: none; margin-top: 0.3rem; }
+    .anti-resume li { font-size: 0.95rem; color: #4a4540; line-height: 1.6; margin-bottom: 0.45rem; padding-left: 1.5rem; position: relative; }
+    .anti-resume li::before { content: '—'; position: absolute; left: 0; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 0.68rem; top: 0.2rem; }
+
+    /* ── TIMELINE ── */
+    .timeline { }
+    .timeline-row { display: flex; align-items: baseline; gap: 1rem; padding: 0.35rem 0; border-bottom: 1px solid var(--rule); }
+    .timeline-row:last-child { border-bottom: none; }
+    .timeline-row .t-year { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; min-width: 5rem; letter-spacing: 0.03em; }
+    .timeline-row .t-text { font-size: 0.96rem; color: #2e2a26; }
+
+    /* ── THESIS ── */
+    .thesis-list { list-style: none; }
+    .thesis-list li { padding: 0.9rem 0; border-bottom: 1px solid var(--rule); }
+    .thesis-list li:last-child { border-bottom: none; }
+    .thesis-list .th-label { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+    .thesis-list a { font-size: 1rem; font-weight: 500; color: var(--ink); text-decoration: none; line-height: 1.35; display: block; margin-bottom: 0.3rem; transition: color 0.15s; }
+    .thesis-list a:hover { color: var(--accent); }
+    .thesis-list .th-desc { font-size: 0.88rem; color: #6a6560; font-style: italic; line-height: 1.5; }
+    .thesis-list .th-cta { display: inline-block; margin-top: 0.55rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.05em; color: var(--accent); }
+
+    /* ── POEMS ── */
+    .poem-accordion { margin-bottom: 0.5rem; border-bottom: 1px solid var(--rule); }
+    .poem-accordion:last-child { border-bottom: none; }
     .poem-title {
-      padding: 0.75rem 0;
-      cursor: pointer;
-      font-size: 1.05rem;
-      transition: color 0.2s;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.75rem 0; cursor: pointer; gap: 1rem;
     }
-    .poem-title:hover { color: var(--accent); }
+    .poem-title span { font-size: 0.97rem; color: var(--ink); font-weight: 500; transition: color 0.15s; }
+    .poem-title:hover span { color: var(--accent); }
+    .poem-title .arrow { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); transition: transform 0.2s; flex-shrink: 0; }
+    .poem-title.open .arrow { transform: rotate(90deg); }
     .poem-body {
       display: none;
-      padding: 0 0 1.25rem 0;
+      padding: 0.5rem 0 1.5rem 0;
+      font-size: 0.93rem;
+      line-height: 2;
+      color: #3a3530;
+      white-space: pre-wrap;
       font-style: italic;
-      color: var(--muted);
-      line-height: 1.9;
     }
     .poem-body.open { display: block; }
 
-    /* Bookshelf */
-    .book-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-    }
-    .book-item {
-      font-size: 0.95rem;
-      padding: 0.5rem 0;
-    }
-    .book-item .book-author {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
+    /* ── BOOKS ── */
+    .reco-list { list-style: none; }
+    .reco-list li { font-size: 0.94rem; color: #2e2a26; line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--rule); display: flex; align-items: baseline; gap: 0.8rem; }
+    .reco-list li:last-child { border-bottom: none; }
+    .reco-list .reco-num { font-family: 'DM Mono', monospace; font-size: 0.58rem; color: var(--muted); flex-shrink: 0; min-width: 1.2rem; }
+    .reco-list a { color: var(--ink); text-decoration: none; transition: color 0.15s; }
+    .reco-list a:hover { color: var(--accent); }
 
-    /* Thesis */
-    .thesis-entry { margin-bottom: 2rem; }
-    .thesis-entry h3 { color: var(--accent); }
-    .thesis-entry p { font-size: 0.95rem; }
+    /* ── NOW ── */
+    .now-updated { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.05em; margin-bottom: 2.2rem; }
+    .now-block { margin-bottom: 2rem; }
+    .now-block h3 { font-size: 0.96rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--ink); }
+    .now-body p, .now-body li { font-size: 0.97rem; color: #2e2a26; line-height: 1.72; margin-bottom: 0.55rem; }
+    .now-body a { color: var(--accent); text-decoration: none; }
+    .now-body ul { list-style: none; padding: 0; }
+    .now-body ul li { padding-left: 1.2rem; position: relative; }
+    .now-body ul li::before { content: '·'; position: absolute; left: 0; color: var(--muted); }
 
-    /* Subscribe */
-    .subscribe-box {
-      background: var(--card);
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-      text-align: center;
-    }
-    .subscribe-box h3 { margin-bottom: 0.5rem; }
-    .subscribe-box p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; }
-    .subscribe-form {
-      display: flex;
-      gap: 0.5rem;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    .subscribe-form input {
-      flex: 1;
-      padding: 0.5rem 0.75rem;
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      background: var(--bg);
-      color: var(--ink);
-    }
-    .subscribe-form button {
-      padding: 0.5rem 1rem;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      cursor: pointer;
-    }
-    .subscribe-form button:hover { opacity: 0.9; }
-    #subscribe-msg {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      margin-top: 0.5rem;
-    }
+    /* ── FOOTER ── */
+    footer { margin-top: 4.5rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.04em; }
+    footer a { color: var(--muted); border-bottom: 1px solid var(--rule); text-decoration: none; }
 
-    /* Connect */
-    .connect-links { list-style: none; }
-    .connect-links li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--rule);
-    }
-    .connect-links li:last-child { border-bottom: none; }
-    .connect-links a { font-size: 1rem; }
-    .connect-links .link-label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      display: inline-block;
-      width: 80px;
-    }
-
-    /* Now page */
-    .now-date {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-
-    /* Photo placeholder */
-    .photo-placeholder {
-      width: 100%;
-      max-width: 280px;
-      aspect-ratio: 3/4;
-      background: var(--rule);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin: 1rem 0;
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--rule);
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    @media (max-width: 600px) {
-      body { font-size: 16px; }
-      .container { padding: 1.5rem 1rem 3rem; }
-      h1 { font-size: 1.5rem; }
-      nav { gap: 0.2rem 0.75rem; font-size: 0.72rem; }
-      .w-preview { padding-left: 0; }
-      .book-grid { grid-template-columns: 1fr; }
-      .subscribe-form { flex-direction: column; }
+    @media (max-width: 520px) {
+      html { font-size: 16px; }
+      body { padding: 1.2rem; padding-top: 2.5rem; }
+      nav { gap: 0.8rem; }
+      .platform-grid, .social-grid, .photo-pair { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
 
-    <!-- Nav -->
-    <nav>
-      <a onclick="show('home')" class="active">home</a>
-      <a onclick="show('about')">about</a>
-      <a onclick="show('writing')">writing</a>
-      <a onclick="show('thesis')">thesis</a>
-      <a onclick="show('literature')">literature</a>
-      <a onclick="show('bookshelf')">bookshelf</a>
-      <a onclick="show('now')">now</a>
-      <a onclick="show('connect')">connect</a>
-      <button id="theme-btn" onclick="toggleTheme()">dark</button>
-    </nav>
-
-    <!-- HOME -->
-    <div id="view-home" class="view active">
-      <h1>Ahammad Shibil</h1>
-      <p class="intro">Biology researcher turned deeptech VC. Building at the intersection of biology and computation.</p>
-
-      <p>I invest in pre-seed and seed stage deeptech companies at <a href="https://specialeinvest.com" target="_blank">Speciale Invest</a>. Before that, I studied biology at IISER Kolkata, started a health-tech company, and worked in operations.</p>
-
-      <p>I write about biology, AI, investing, and the ideas that sit between them at <a href="https://atomsandcells.substack.com" target="_blank">Atoms & Cells</a>.</p>
-
-      <hr />
-
-      <div class="label">Recent writing</div>
-      <ul style="list-style:none;">
-        <li style="margin-bottom:0.5rem;"><a href="#" onclick="goWriting('biology'); return false;">Why condensate biology changes drug discovery</a> <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);">2026</span></li>
-        <li style="margin-bottom:0.5rem;"><a href="#" onclick="goWriting('ai'); return false;">The case for biological intelligence</a> <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);">2025</span></li>
-        <li style="margin-bottom:0.5rem;"><a href="#" onclick="goWriting('investments'); return false;">Investing at the frontier of biology</a> <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);">2025</span></li>
-      </ul>
-
-      <hr />
-
-      <div class="subscribe-box">
-        <h3>Atoms & Cells</h3>
-        <p>Writing about biology, AI, and building at the frontier. Delivered when ready.</p>
-        <div class="subscribe-form">
-          <input type="email" id="sub-email" placeholder="your@email.com" />
-          <button onclick="handleSubscribe()">subscribe</button>
-        </div>
-        <div id="subscribe-msg"></div>
-      </div>
-
-      <footer>&copy; 2026 Ahammad Shibil</footer>
-    </div>
-
-    <!-- ABOUT -->
-    <div id="view-about" class="view">
-      <div class="label">About</div>
-      <h1>About</h1>
-
-      <div class="photo-placeholder">photo — shibil.jpg</div>
-
-      <p>I grew up in Kerala, studied biology at the Indian Institute of Science Education and Research (IISER) Kolkata, and moved to Chennai to build things.</p>
-
-      <p>My path: research in biology → founding a health-tech startup (Inarihealth) → operations at TeOra → investing in deeptech at Speciale Invest. Next: founding a bio-AI company.</p>
-
-      <p>I think about biology the way most people think about software — as a programmable system. The next century belongs to people who understand both the code of life and the code of machines.</p>
-
-      <hr />
-
-      <div class="label">Influences</div>
-      <p>Nassim Taleb's thinking on risk and antifragility. Richard Feynman's clarity. E.O. Wilson's consilience. The Urdu poetry my grandfather read to me.</p>
-
-      <div class="photo-placeholder">photo — grandfather.jpg</div>
-
-      <footer>&copy; 2026 Ahammad Shibil</footer>
-    </div>
-
-    <!-- WRITING -->
-    <div id="view-writing" class="view">
-      <div class="label">Writing</div>
-      <h1>Writing</h1>
-      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1.5rem;">Essays on biology, AI, investing, and the ideas between them.</p>
-
-      <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterWriting('all', this)">all</button>
-        <button class="filter-btn" onclick="filterWriting('biology', this)">biology</button>
-        <button class="filter-btn" onclick="filterWriting('ai', this)">ai</button>
-        <button class="filter-btn" onclick="filterWriting('investments', this)">investments</button>
-        <button class="filter-btn" onclick="filterWriting('philosophy', this)">philosophy</button>
-      </div>
-
-      <ul id="writing-list">
-        <li data-cat="biology">
-          <div class="w-row" onclick="togglePreview(this)">
-            <span class="date">2026</span>
-            <span class="w-title">Why condensate biology changes drug discovery</span>
-            <span class="tag">biology</span>
-          </div>
-          <div class="w-preview">
-            <p><em>Biomolecular condensates are rewriting the rules of drug targeting. Phase separation creates compartments without membranes — and opens attack surfaces nobody mapped before.</em></p>
-            <a href="#" target="_blank">Read on Substack &rarr;</a>
-          </div>
-        </li>
-        <li data-cat="ai">
-          <div class="w-row" onclick="togglePreview(this)">
-            <span class="date">2025</span>
-            <span class="w-title">The case for biological intelligence</span>
-            <span class="tag">ai</span>
-          </div>
-          <div class="w-preview">
-            <p><em>AI trained on biological data will understand the world differently than AI trained on text. The next foundation models might be built on sequences, structures, and pathways.</em></p>
-            <a href="#" target="_blank">Read on Substack &rarr;</a>
-          </div>
-        </li>
-        <li data-cat="investments">
-          <div class="w-row" onclick="togglePreview(this)">
-            <span class="date">2025</span>
-            <span class="w-title">Investing at the frontier of biology</span>
-            <span class="tag">investments</span>
-          </div>
-          <div class="w-preview">
-            <p><em>What makes deeptech bio investing different from SaaS. The timelines are longer, the moats are deeper, and the upside is non-linear.</em></p>
-            <a href="#" target="_blank">Read on Substack &rarr;</a>
-          </div>
-        </li>
-        <li data-cat="philosophy">
-          <div class="w-row" onclick="togglePreview(this)">
-            <span class="date">2025</span>
-            <span class="w-title">Antifragility in career design</span>
-            <span class="tag">philosophy</span>
-          </div>
-          <div class="w-preview">
-            <p><em>Most career advice optimizes for efficiency. The better frame is antifragility — building a career that gains from disorder, not one that breaks from it.</em></p>
-            <a href="#" target="_blank">Read on Substack &rarr;</a>
-          </div>
-        </li>
-        <li data-cat="biology">
-          <div class="w-row" onclick="togglePreview(this)">
-            <span class="date">2025</span>
-            <span class="w-title">The cell as a computation</span>
-            <span class="tag">biology</span>
-          </div>
-          <div class="w-preview">
-            <p><em>Cells process information, make decisions, and execute programs — without a central processor. Understanding biological computation is the key to engineering life.</em></p>
-            <a href="#" target="_blank">Read on Substack &rarr;</a>
-          </div>
-        </li>
-      </ul>
-
-      <footer>&copy; 2026 Ahammad Shibil</footer>
-    </div>
-
-    <!-- THESIS -->
-    <div id="view-thesis" class="view">
-      <div class="label">Investment thesis</div>
-      <h1>Thesis</h1>
-      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:2rem;">What I believe about the future, and where I look for companies.</p>
-
-      <div class="thesis-entry">
-        <h3>Biology is becoming an engineering discipline</h3>
-        <p>The convergence of synthetic biology, computational tools, and AI is turning biology from a discovery science into a design science. Companies that treat biological systems as programmable will build the most durable moats.</p>
-      </div>
-
-      <div class="thesis-entry">
-        <h3>AI needs biology as much as biology needs AI</h3>
-        <p>The richest data in the world is biological. Protein sequences, cellular interactions, clinical outcomes — these are the training sets for the next generation of foundation models. The companies that own this data flywheel win.</p>
-      </div>
-
-      <div class="thesis-entry">
-        <h3>India's deeptech moment</h3>
-        <p>India has world-class biology talent, growing compute infrastructure, and a regulatory environment that's learning fast. The arbitrage between talent cost and problem value is enormous at pre-seed and seed.</p>
-      </div>
-
-      <footer>&copy; 2026 Ahammad Shibil</footer>
-    </div>
-
-    <!-- LITERATURE -->
-    <div id="view-literature" class="view">
-      <div class="label">Literature</div>
-      <h1>Literature</h1>
-      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1.5rem;">Poems. Some finished, some still breathing.</p>
-
-      <ul id="poem-list">
-        <li>
-          <div class="poem-title" onclick="togglePoem(this)">The lab at night</div>
-          <div class="poem-body">
-            <p>The centrifuge hums its lullaby,<br/>
-            tubes spinning their small deaths,<br/>
-            separating what was whole<br/>
-            into what we can measure.<br/><br/>
-            I am learning the grammar of cells —<br/>
-            how they speak in phosphorylation,<br/>
-            argue through apoptosis,<br/>
-            forgive through division.</p>
-          </div>
-        </li>
-        <li>
-          <div class="poem-title" onclick="togglePoem(this)">Chennai, 6 AM</div>
-          <div class="poem-body">
-            <p>The city wakes in layers:<br/>
-            first the crows, then the temples,<br/>
-            then the autorickshaws<br/>
-            negotiating with god and traffic.<br/><br/>
-            I walk to work through the heat<br/>
-            that arrives before the sun,<br/>
-            carrying equations in my head<br/>
-            and my grandfather's voice in my chest.</p>
-          </div>
-        </li>
-        <li>
-          <div class="poem-title" onclick="togglePoem(this)">On reading Taleb at twenty-three</div>
-          <div class="poem-body">
-            <p>He said: the fragile breaks,<br/>
-            the robust endures,<br/>
-            but the antifragile — it feeds on chaos.<br/><br/>
-            I closed the book and looked<br/>
-            at my failed startup,<br/>
-            my rejected papers,<br/>
-            my unanswered emails,<br/><br/>
-            and thought: maybe I am not broken.<br/>
-            Maybe I am composting.</p>
-          </div>
-        </li>
-      </ul>
-
-      <footer>&copy; 2026 Ahammad Shibil</footer>
-    </div>
-
-    <!-- BOOKSHELF -->
-    <div id="view-bookshelf" class="view">
-      <div class="label">Bookshelf</div>
-      <h1>Bookshelf</h1>
-      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:2rem;">Books that changed how I think.</p>
-
-      <div class="label">Biology & Science</div>
-      <div class="book-grid">
-        <div class="book-item">The Selfish Gene <div class="book-author">Richard Dawkins</div></div>
-        <div class="book-item">The Molecular Biology of the Cell <div class="book-author">Alberts et al.</div></div>
-        <div class="book-item">Behave <div class="book-author">Robert Sapolsky</div></div>
-        <div class="book-item">The Gene <div class="book-author">Siddhartha Mukherjee</div></div>
-      </div>
-
-      <hr />
-
-      <div class="label">Thinking & Risk</div>
-      <div class="book-grid">
-        <div class="book-item">Antifragile <div class="book-author">Nassim Taleb</div></div>
-        <div class="book-item">The Black Swan <div class="book-author">Nassim Taleb</div></div>
-        <div class="book-item">Fooled by Randomness <div class="book-author">Nassim Taleb</div></div>
-        <div class="book-item">Thinking, Fast and Slow <div class="book-author">Daniel Kahneman</div></div>
-      </div>
-
-      <hr />
-
-      <div class="label">Building & Investing</div>
-      <div class="book-grid">
-        <div class="book-item">Zero to One <div class="book-author">Peter Thiel</div></div>
-        <div class="book-item">The Hard Thing About Hard Things <div class="book-author">Ben Horowitz</div></div>
-        <div class="book-item">Shoe Dog <div class="book-author">Phil Knight</div></div>
-        <div class="book-item">The Almanack of Naval Ravikant <div class="book-author">Eric Jorgenson</div></div>
-      </div>
-
-      <footer>&copy; 2026 Ahammad Shibil</footer>
-    </div>
-
-    <!-- NOW -->
-    <div id="view-now" class="view">
-      <div class="label">Now</div>
-      <h1>Now</h1>
-      <div class="now-date">Updated March 2026</div>
-
-      <h3>Working</h3>
-      <p>Investment Analyst at Speciale Invest, focused on deeptech — bio, AI, and the intersection. Evaluating pre-seed and seed companies across India.</p>
-
-      <h3>Building</h3>
-      <p>Actively exploring co-founder search for a bio-AI company. The thesis: biological data is the most undervalued substrate for machine intelligence.</p>
-
-      <h3>Writing</h3>
-      <p>Publishing essays at <a href="https://atomsandcells.substack.com" target="_blank">Atoms & Cells</a>. Current series on condensate biology and programmable life.</p>
-
-      <h3>Reading</h3>
-      <p>Re-reading Taleb's Incerto series. Working through recent papers on phase separation in transcription regulation.</p>
-
-      <h3>Living</h3>
-      <p>Chennai. Trying to walk more, read more Urdu poetry, and cook at least three times a week.</p>
-
-      <footer>&copy; 2026 Ahammad Shibil</footer>
-    </div>
-
-    <!-- CONNECT -->
-    <div id="view-connect" class="view">
-      <div class="label">Connect</div>
-      <h1>Connect</h1>
-      <p style="margin-bottom:1.5rem;">If you're building something at the frontier of biology, AI, or deeptech — I'd like to hear about it.</p>
-
-      <ul class="connect-links">
-        <li><span class="link-label">email</span> <a href="mailto:shibil.ahammad@specialeinvest.com">shibil.ahammad@specialeinvest.com</a></li>
-        <li><span class="link-label">twitter</span> <a href="https://twitter.com/ShibilAhammad" target="_blank">@ShibilAhammad</a></li>
-        <li><span class="link-label">linkedin</span> <a href="https://linkedin.com/in/ahammadshibil" target="_blank">/in/ahammadshibil</a></li>
-        <li><span class="link-label">substack</span> <a href="https://atomsandcells.substack.com" target="_blank">Atoms & Cells</a></li>
-        <li><span class="link-label">github</span> <a href="https://github.com/ahammadshibil" target="_blank">/ahammadshibil</a></li>
-        <li><span class="link-label">medium</span> <a href="https://medium.com/@shibilahammad" target="_blank">@shibilahammad</a></li>
-        <li><span class="link-label">instagram</span> <a href="#" target="_blank">@your_handle</a></li>
-      </ul>
-
-      <footer>&copy; 2026 Ahammad Shibil</footer>
-    </div>
-
+<nav>
+  <div class="nav-left" onclick="show('home')">
+    <span class="site-name">Ahammad Shibil</span>
+    <span class="site-sub">biology · capital · writing</span>
   </div>
+  <span class="nav-link" onclick="show('about')">About</span>
+  <span class="nav-link" onclick="show('writing')">Writing</span>
+  <span class="nav-link" onclick="show('thesis')">Thesis</span>
+  <span class="nav-link" onclick="show('literature')">Literature</span>
+  <span class="nav-link" onclick="show('bookshelf')">Bookshelf</span>
+  <span class="nav-link" onclick="show('now')">Now</span>
+  <span class="nav-link" onclick="show('connect')">Connect</span>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode" id="theme-btn">○ light</button>
+</nav>
 
-  <script>
-    // View routing
-    function show(view) {
-      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-      document.getElementById('view-' + view).classList.add('active');
-      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-      document.querySelectorAll('nav a').forEach(a => {
-        if (a.textContent.trim() === view) a.classList.add('active');
-      });
-      window.scrollTo(0, 0);
-      window.location.hash = view === 'home' ? '' : view;
-    }
+<!-- ════════ HOME ════════ -->
+<div id="view-home" class="view active">
+  <p class="intro">Researcher turned investor. Biology, capital, and the space between. Founding something in bio-AI.</p>
 
-    // Writing filter
-    function filterWriting(cat, btn) {
-      // Close any open previews
-      document.querySelectorAll('.w-preview.open').forEach(p => p.classList.remove('open'));
+  <section>
+    <div class="label">Latest</div>
+    <a class="latest-post" href="https://atomsandcells.substack.com" target="_blank">
+      <div class="meta">2025 · Atoms & Cells · Biology</div>
+      <h2>Gene therapy's economics don't work yet — here's why</h2>
+      <p>The biology is increasingly solved. The vectors work. The regulatory path is clearer. So why does every gene therapy company struggle to survive commercialization?</p>
+      <span class="read-more">Keep reading →</span>
+    </a>
+  </section>
 
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
+  <hr />
 
-      document.querySelectorAll('#writing-list li').forEach(li => {
-        if (cat === 'all' || li.dataset.cat === cat) {
-          li.style.display = '';
-        } else {
-          li.style.display = 'none';
-        }
-      });
-    }
+  <section>
+    <div class="label">Topics</div>
+    <div class="topics">
+      <a onclick="goWriting('ai')">ai</a>
+      <a onclick="goWriting('biology')">biotech</a>
+      <a onclick="goWriting('biology')">biology</a>
+      <a onclick="goWriting('investments')">capital</a>
+      <a onclick="goWriting('biology')">CDMO</a>
+      <a onclick="goWriting('biology')">condensates</a>
+      <a onclick="goWriting('investments')">deeptech</a>
+      <a onclick="goWriting('ai')">drug discovery</a>
+      <a onclick="goWriting('biology')">gene therapy</a>
+      <a onclick="goWriting('biology')">genomics</a>
+      <a onclick="goWriting('investments')">India</a>
+      <a onclick="goWriting('biology')">oncolytic virus</a>
+      <a onclick="goWriting('philosophy')">philosophy</a>
+      <a onclick="goWriting('investments')">space</a>
+      <a onclick="goWriting('biology')">synthetic biology</a>
+      <a onclick="goWriting('investments')">venture capital</a>
+    </div>
+  </section>
 
-    // Navigate to writing + filter
-    function goWriting(cat) {
-      show('writing');
-      const btn = document.querySelector('.filter-btn[onclick*="' + cat + '"]');
-      filterWriting(cat, btn);
-    }
+  <hr />
 
-    // Article preview accordion
-    function togglePreview(rowEl) {
-      const preview = rowEl.nextElementSibling;
-      const wasOpen = preview.classList.contains('open');
+  <section>
+    <div class="label">Where I write</div>
+    <div class="platform-grid">
+      <a class="platform-card" href="https://atomsandcells.substack.com" target="_blank">
+        <div class="p-platform">Substack</div>
+        <div class="p-title">Atoms & Cells</div>
+        <div class="p-desc">Where biology and physics become companies. Long-form on biotech, AI, and deeptech.</div>
+        <span class="p-cta">Subscribe →</span>
+      </a>
+      <a class="platform-card" href="https://medium.com/@shibilahammad" target="_blank">
+        <div class="p-platform">Medium</div>
+        <div class="p-title">@shibilahammad</div>
+        <div class="p-desc">Science, startups, and philosophy. Earlier essays and more personal voice.</div>
+        <span class="p-cta">Read →</span>
+      </a>
+    </div>
+  </section>
 
-      // Close all
-      document.querySelectorAll('.w-preview.open').forEach(p => p.classList.remove('open'));
+  <hr />
 
-      if (!wasOpen) preview.classList.add('open');
-    }
+  <section>
+    <div class="subscribe-block">
+      <div class="sub-label">Atoms & Cells — free newsletter</div>
+      <p>Biology and physics becoming companies. Long-form on biotech, AI, and deeptech. No filler.</p>
+      <div class="sub-form">
+        <input type="email" id="sub-email" placeholder="your@email.com" />
+        <button onclick="handleSubscribe()">Subscribe →</button>
+      </div>
+      <div class="sub-success" id="sub-success">✓ redirecting to substack...</div>
+    </div>
+  </section>
 
-    // Poem accordion
-    function togglePoem(titleEl) {
-      const body = titleEl.nextElementSibling;
-      const wasOpen = body.classList.contains('open');
+  <footer>Chennai · March 2026</footer>
+</div>
+<div id="view-about" class="view">
 
-      document.querySelectorAll('.poem-body.open').forEach(p => p.classList.remove('open'));
+  <section>
+    <div class="label">Photos</div>
+    <div class="photo-pair">
+      <div>
+        <div class="photo-slot">
+          <!-- To add: replace with <img src="./shibil.jpg" alt="Ahammad Shibil"> -->
+          <div class="ph">Your portrait<br/>Drop image here</div>
+        </div>
+        <div class="photo-caption">Ahammad Shibil</div>
+      </div>
+      <div>
+        <div class="photo-slot">
+          <!-- To add: replace with <img src="./grandfather.jpg" alt="With my grandfather"> -->
+          <div class="ph">With my grandfather<br/>Drop image here</div>
+        </div>
+        <div class="photo-caption">With my grandfather</div>
+      </div>
+    </div>
+  </section>
 
-      if (!wasOpen) body.classList.add('open');
-    }
+  <hr />
 
-    // Theme toggle
-    function toggleTheme() {
-      const html = document.documentElement;
-      const isDark = html.getAttribute('data-theme') === 'dark';
-      html.setAttribute('data-theme', isDark ? '' : 'dark');
-      document.getElementById('theme-btn').textContent = isDark ? 'dark' : 'light';
-      localStorage.setItem('theme', isDark ? 'light' : 'dark');
-    }
+  <section>
+    <div class="label">About</div>
+    <div class="prose">
+      <p>I'm an investment analyst at <a href="https://specialeinvest.com" target="_blank">Speciale Invest</a>, a pre-seed/seed deeptech VC firm in Chennai. I lead deals independently across biotech, space, defense, quantum, and semiconductors — at partner level, despite the title.</p>
 
-    // Subscribe
-    function handleSubscribe() {
-      const email = document.getElementById('sub-email').value.trim();
-      const msg = document.getElementById('subscribe-msg');
+      <p>Born and raised in a small town in Kerala in a joint family, my grandfather was my everything. He was a teacher, entrepreneur, social worker, and visionary — I learned the world through him. He instilled in me a deep sense of curiosity and a passion for making a difference in the world. Consequently, I pursued education in the field of science as a foundation for achieving my aspirations, and the best place to do it was IISER. Well as cliche as it sounds, I don't think any of my achievements would have been possible without him.</p>
 
-      if (!email || !email.includes('@')) {
-        msg.textContent = 'Please enter a valid email.';
-        msg.style.color = '#c44';
-        return;
-      }
+      <p>During my time at IISER, I explored a range of interdisciplinary fields in science, mathematics, and computer science. I developed a keen interest in biological sciences and physics, and ultimately chose to major in biological sciences. Nerding out completely on Feynman, Sapolsky, and the wonderful world of science. My master's thesis was in biophysics — understanding traction forces of cells. I was always passionate about interdisciplinary fields, or perhaps I was just bored with core sciences.</p>
 
-      msg.textContent = 'Redirecting to Substack...';
-      msg.style.color = 'var(--accent)';
+      <p>After IISER, I worked as a JRF in a biomechanics lab at IISc — but felt that success in research was primarily measured by the number of papers published. I wanted to make an immediate impact. By late 2020, I started my own startup in women's healthcare, offering solutions for PCOS. Despite initial traction, I faced scaling issues and had to shut it down in January 2022.</p>
 
-      setTimeout(() => {
-        window.open('https://atomsandcells.substack.com/subscribe?email=' + encodeURIComponent(email), '_blank');
-      }, 500);
-    }
+      <p>In early 2022, I took on a role as operations manager at a Singapore-based biotech startup. I built an operational network in India, created contracts with three national institutes, hired and mentored people, and completed animal trials under the estimated timeline. But life became monotonous. So I took a career break. That led me to finance, coding, AI — absorbing knowledge. I started writing blogs because I had a lot to say and no audience. Those ripples found Speciale.</p>
 
-    // Init
-    (function() {
-      // Restore theme
-      const saved = localStorage.getItem('theme');
-      if (saved === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        document.getElementById('theme-btn').textContent = 'light';
-      }
+      <p>I'm now preparing to leave VC to found something in bio-AI. Outside of work: I read widely across history, fiction, philosophy, and science. I train seriously — gym, boxing, yoga, swimming. I write at <a href="https://atomsandcells.substack.com" target="_blank">Atoms & Cells</a>. Based in Chennai, from Kerala.</p>
+    </div>
+  </section>
 
-      // Hash routing
-      const hash = window.location.hash.replace('#', '');
-      if (hash && document.getElementById('view-' + hash)) {
-        show(hash);
-      }
-    })();
+  <hr />
 
-    window.addEventListener('hashchange', () => {
-      const hash = window.location.hash.replace('#', '') || 'home';
-      if (document.getElementById('view-' + hash)) show(hash);
+  <section>
+    <div class="label">Timeline</div>
+    <div class="timeline">
+      <div class="timeline-row"><span class="t-year">2014–19</span><span class="t-text">IISER Kolkata · BS-MS Biological Sciences</span></div>
+      <div class="timeline-row"><span class="t-year">2019–20</span><span class="t-text">JRF, Biomechanics Lab · IISc Bangalore</span></div>
+      <div class="timeline-row"><span class="t-year">2020–22</span><span class="t-text">Founder · Inarihealth (femtech, PCOS)</span></div>
+      <div class="timeline-row"><span class="t-year">2022–23</span><span class="t-text">Operations Lead · TeOra Biotech, Singapore</span></div>
+      <div class="timeline-row"><span class="t-year">2023</span><span class="t-text">Career break · learning, writing, figuring it out</span></div>
+      <div class="timeline-row"><span class="t-year">2024–now</span><span class="t-text">Investment Analyst · Speciale Invest, Chennai</span></div>
+      <div class="timeline-row"><span class="t-year">2026 →</span><span class="t-text">Founding · bio-AI company</span></div>
+    </div>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="label">Anti-Resume</div>
+    <div class="prose">
+      <p style="font-style:italic;font-size:0.9rem;color:#6a6560;margin-bottom:1rem;">I'm very proud of my failures, more than my successes, because every time I failed I grew in some way or form. And I firmly believe the only failure is not failing enough.</p>
+    </div>
+    <ul class="anti-resume">
+      <li>Failed 8th math first term exams, but won 17th rank in the state math olympiad the same year.</li>
+      <li>Failed 12th chemistry model exams, but became top 1 percentile in CBSE boards.</li>
+      <li>Failed IIT-JEE miserably after two years of hard work, but cracked IISER the same year.</li>
+      <li>Got D's in multiple CS courses at IISER. Later learned AI and built a GitHub portfolio with multiple interesting projects.</li>
+      <li>Failed CAT. Figured I wanted an MBA to start a startup — so just started a startup.</li>
+      <li>Failed the startup due to co-founder issues despite figuring out the MVP, but that led me to lead operations of a successful biotech startup.</li>
+      <li>Left operations without a job in hand. Unemployed for almost ten months. That period gave me yoga, boxing, weightlifting, investing, AI, writing — and finally Speciale.</li>
+    </ul>
+  </section>
+
+  <footer>Last updated March 2026</footer>
+</div>
+
+<!-- ════════ WRITING ════════ -->
+<div id="view-writing" class="view">
+  <section>
+    <div class="label">Writing</div>
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterWriting('all', this)">All</button>
+      <button class="filter-btn" onclick="filterWriting('biology', this)">Biology</button>
+      <button class="filter-btn" onclick="filterWriting('ai', this)">AI</button>
+      <button class="filter-btn" onclick="filterWriting('investments', this)">Investments</button>
+      <button class="filter-btn" onclick="filterWriting('philosophy', this)">Philosophy</button>
+    </div>
+    <ul class="writing-list" id="writing-list">
+
+      <li data-cat="biology">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2025</span>
+          <span class="w-title">Gene therapy's economics don't work yet — here's why</span>
+          <span class="tag">biology</span>
+        </div>
+        <div class="w-preview">
+          <p>The biology is increasingly solved. The vectors work. The regulatory path is clearer. So why does every gene therapy company struggle to survive commercialization? The answer is almost entirely economic — and the field hasn't reckoned with it honestly.</p>
+          <a href="https://atomsandcells.substack.com" target="_blank">Read on Atoms & Cells →</a>
+        </div>
+      </li>
+
+      <li data-cat="biology">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2025</span>
+          <span class="w-title">India's CDMO moment post-BIOSECURE Act</span>
+          <span class="tag">biology</span>
+        </div>
+        <div class="w-preview">
+          <p>79% of US biotech companies have at least one contract with a Chinese CDMO. The BIOSECURE Act is forcing them to diversify. This is the once-in-a-generation opening India has been waiting for — but capturing it requires building capabilities we don't fully have yet.</p>
+          <a href="https://atomsandcells.substack.com" target="_blank">Read on Atoms & Cells →</a>
+        </div>
+      </li>
+
+      <li data-cat="biology">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2024</span>
+          <span class="w-title">Condensate biology and the next layer of drug targets</span>
+          <span class="tag">biology</span>
+        </div>
+        <div class="w-preview">
+          <p>Phase-separated condensates — membraneless organelles that concentrate proteins and nucleic acids — are emerging as a new class of drug targets. The biology is real. Whether it translates into druggable chemistry is the open question the field is racing to answer.</p>
+          <a href="https://atomsandcells.substack.com" target="_blank">Read on Atoms & Cells →</a>
+        </div>
+      </li>
+
+      <li data-cat="biology">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2024</span>
+          <span class="w-title">In vivo genetic medicine: the state of the field</span>
+          <span class="tag">biology</span>
+        </div>
+        <div class="w-preview">
+          <p>A deep survey of where in vivo gene editing actually stands — delivery, payload, safety, and the distance between what's possible in the lab and what works in a patient. More honest than most coverage in the space.</p>
+          <a href="https://atomsandcells.substack.com" target="_blank">Read on Atoms & Cells →</a>
+        </div>
+      </li>
+
+      <li data-cat="biology">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2024</span>
+          <span class="w-title">Hacking Nature: The Promise of Programmable Biology</span>
+          <span class="tag">biology</span>
+        </div>
+        <div class="w-preview">
+          <p>Synthetic biology is moving from proof-of-concept to product. The question is no longer whether we can program cells — it's which applications are commercially viable first, and what it takes to build a real business on programmable biology.</p>
+          <a href="https://www.specialeinvest.com/blog/hacking-nature-the-promise-of-programmable-biology" target="_blank">Read on Speciale →</a>
+        </div>
+      </li>
+
+      <li data-cat="biology">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2024</span>
+          <span class="w-title">How to de-risk a biotech company: understanding platform biotech</span>
+          <span class="tag">biology</span>
+        </div>
+        <div class="w-preview">
+          <p>Platform biotech companies promise multiple shots on goal from a single technical capability. But the BD strategy, the pipeline prioritization, the partnership model — most founders get these wrong early. Here's how to think about it.</p>
+          <a href="https://www.specialeinvest.com/blog/understanding-the-potential-of-platform-biotech-the-future-of-biotech-innovations" target="_blank">Read on Speciale →</a>
+        </div>
+      </li>
+
+      <li data-cat="ai">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2024</span>
+          <span class="w-title">AI drug discovery: mechanism over marketing</span>
+          <span class="tag">ai</span>
+        </div>
+        <div class="w-preview">
+          <p>Every biotech now claims AI at the core. Most of it is curve-fitting on small datasets with no mechanistic grounding. This piece cuts through the noise — what actually constitutes meaningful AI in drug discovery, and what's just a pitch deck keyword.</p>
+          <a href="https://atomsandcells.substack.com" target="_blank">Read on Atoms & Cells →</a>
+        </div>
+      </li>
+
+      <li data-cat="ai">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2024</span>
+          <span class="w-title">AI and Biology: a convergence thesis</span>
+          <span class="tag">ai</span>
+        </div>
+        <div class="w-preview">
+          <p>The two most important intellectual projects of our time are colliding. AI gives biology a new language for reading and writing the code of life. Biology gives AI the hardest, most consequential problems it has ever faced. The convergence is not metaphor — it's infrastructure.</p>
+          <a href="https://medium.com/@shibilahammad" target="_blank">Read on Medium →</a>
+        </div>
+      </li>
+
+      <li data-cat="investments">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2026</span>
+          <span class="w-title">Deeptech 2.0 — why the next decade of VC returns will be built on atoms, not bits</span>
+          <span class="tag">investments</span>
+        </div>
+        <div class="w-preview">
+          <p>Deeptech has outperformed traditional VC by 60–70% over two decades. The software era delivered incredible returns — but those platform opportunities are mature. The next wave is physical: energy, biotech, space, defense, advanced materials. Two frameworks for timing your entry: AIP and RTPS.</p>
+          <a href="https://www.notion.so/28a35b4144ac8064b3f3e1ec907f3e2b" target="_blank">Read the full thesis →</a>
+        </div>
+      </li>
+
+      <li data-cat="investments">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2025</span>
+          <span class="w-title">Platform biotech BD strategy: what founders get wrong</span>
+          <span class="tag">investments</span>
+        </div>
+        <div class="w-preview">
+          <p>Platform companies have more optionality than any other biotech archetype — and more ways to destroy value through bad strategic choices. The BD decisions made in years two and three almost always determine whether the platform compounds or fragments.</p>
+          <a href="https://atomsandcells.substack.com" target="_blank">Read on Atoms & Cells →</a>
+        </div>
+      </li>
+
+      <li data-cat="investments">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2024</span>
+          <span class="w-title">VC under intelligence commoditization</span>
+          <span class="tag">investments</span>
+        </div>
+        <div class="w-preview">
+          <p>When AI agents can do most of what analysts do in days, what does venture capital actually look like? The edge shifts from information gathering to judgment — and judgment requires a point of view that can't be automated. What survives, what doesn't.</p>
+          <a href="https://atomsandcells.substack.com" target="_blank">Read on Atoms & Cells →</a>
+        </div>
+      </li>
+
+      <li data-cat="investments">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2024</span>
+          <span class="w-title">How to evaluate a deeptech startup in India</span>
+          <span class="tag">investments</span>
+        </div>
+        <div class="w-preview">
+          <p>The standard VC evaluation frameworks — TAM, growth rate, team-market fit — were built for SaaS. Applying them to a company with a ten-year development timeline and government as a first customer leads to bad decisions. A different set of questions to ask.</p>
+          <a href="https://medium.com/@shibilahammad" target="_blank">Read on Medium →</a>
+        </div>
+      </li>
+
+      <li data-cat="investments">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2023</span>
+          <span class="w-title">The deeptech fundraising guide</span>
+          <span class="tag">investments</span>
+        </div>
+        <div class="w-preview">
+          <p>A practical guide for deeptech founders raising in India — how to think about narrative construction, investor selection, timing, and the specific challenges of pitching hard science at pre-seed. Written from the investor side of the table.</p>
+          <a href="https://harvest-character-c48.notion.site/Deep-tech-fundraising-guide-1e435b4144ac8037a207c96941006740" target="_blank">Read the guide →</a>
+        </div>
+      </li>
+
+      <li data-cat="philosophy">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2024</span>
+          <span class="w-title">Biology already solved it. We're just catching up.</span>
+          <span class="tag">philosophy</span>
+        </div>
+        <div class="w-preview">
+          <p>Every engineering problem we think is hard, evolution solved three billion years ago under harsher constraints. The humility this requires of us — and the ambition it unlocks — is the most underrated idea in science and technology.</p>
+          <a href="https://medium.com/@shibilahammad" target="_blank">Read on Medium →</a>
+        </div>
+      </li>
+
+      <li data-cat="philosophy">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2023</span>
+          <span class="w-title">On failure as the only reliable teacher</span>
+          <span class="tag">philosophy</span>
+        </div>
+        <div class="w-preview">
+          <p>I failed 8th grade math and won a state olympiad the same year. I failed IIT-JEE and got into IISER. I failed a startup and found my way to venture capital. The pattern is not accidental. Failure is not the opposite of learning — it's the mechanism.</p>
+          <a href="https://medium.com/@shibilahammad" target="_blank">Read on Medium →</a>
+        </div>
+      </li>
+
+      <li data-cat="philosophy">
+        <div class="w-row" onclick="togglePreview(this)">
+          <span class="date">2023</span>
+          <span class="w-title">What ten months of unemployment taught me about learning</span>
+          <span class="tag">philosophy</span>
+        </div>
+        <div class="w-preview">
+          <p>I left a job without one in hand. Ten months, no income, no plan. I learned yoga, boxing, AI, writing, and investing — not because I was disciplined, but because I had no choice but to absorb everything. Some thoughts on what that period actually produced.</p>
+          <a href="https://medium.com/@shibilahammad" target="_blank">Read on Medium →</a>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="label">Published at</div>
+    <div class="platform-grid">
+      <a class="platform-card" href="https://atomsandcells.substack.com" target="_blank">
+        <div class="p-platform">Substack</div>
+        <div class="p-title">Atoms & Cells</div>
+        <div class="p-desc">Monthly flagship · biweekly deep dives. Biology, AI, deeptech investing.</div>
+        <span class="p-cta">Subscribe →</span>
+      </a>
+      <a class="platform-card" href="https://medium.com/@shibilahammad" target="_blank">
+        <div class="p-platform">Medium</div>
+        <div class="p-title">@shibilahammad</div>
+        <div class="p-desc">Personal essays, early writing, philosophy and reflections.</div>
+        <span class="p-cta">Read →</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>Writing publicly since 2022</footer>
+</div>
+
+<!-- ════════ THESIS ════════ -->
+<div id="view-thesis" class="view">
+
+  <section>
+    <div class="label">Thesis</div>
+    <ul class="thesis-list">
+      <li>
+        <div class="th-label">Investments · 2026</div>
+        <a href="https://www.notion.so/28a35b4144ac8064b3f3e1ec907f3e2b" target="_blank">Deeptech 2.0 — Why the Next Decade of VC Returns Will Be Built on Atoms, Not Bits</a>
+        <div class="th-desc">A comprehensive update to my original deeptech thesis. New frameworks (AIP, RTPS), new sectors, new conviction. Covers space, biotech, fusion, defense, quantum, materials, and Industrial 4.0 — with a specific India angle throughout.</div>
+        <a class="th-cta" href="https://www.notion.so/28a35b4144ac8064b3f3e1ec907f3e2b" target="_blank">Read the full thesis →</a>
+      </li>
+      <li>
+        <div class="th-label">Investments · 2023</div>
+        <a href="https://berry-eris-c97.notion.site/Investment-Thesis-Deep-Tech-in-India-75455f0d3175449994aa2c25a2b45604" target="_blank">Investment Thesis: Deeptech in India</a>
+        <div class="th-desc">My first thesis — how to evaluate deeptech startups in India, which sectors are interesting, and how to think about timing. The bones are right, but the world has moved since. Reading it now feels like looking at old photographs.</div>
+        <a class="th-cta" href="https://berry-eris-c97.notion.site/Investment-Thesis-Deep-Tech-in-India-75455f0d3175449994aa2c25a2b45604" target="_blank">Read →</a>
+      </li>
+      <li>
+        <div class="th-label">Biology · 2023</div>
+        <a href="https://harvest-character-c48.notion.site/73a49be86de94c19b9b4bd0af5f5fdcf" target="_blank">Synthetic Biology Thesis</a>
+        <div class="th-desc">A detailed look at synthetic biology startups — what makes them investable, where the interesting sub-sectors are, how to separate signal from hype. Written during my early months at Speciale.</div>
+        <a class="th-cta" href="https://harvest-character-c48.notion.site/73a49be86de94c19b9b4bd0af5f5fdcf" target="_blank">Read →</a>
+      </li>
+      <li>
+        <div class="th-label">Guide · 2023</div>
+        <a href="https://harvest-character-c48.notion.site/Deep-tech-fundraising-guide-1e435b4144ac8037a207c96941006740" target="_blank">The Deeptech Fundraising Guide</a>
+        <div class="th-desc">A practical guide for founders raising for deeptech companies in India — how to think about timing, storytelling, investor selection, and the specific challenges of pitching hard tech at pre-seed/seed.</div>
+        <a class="th-cta" href="https://harvest-character-c48.notion.site/Deep-tech-fundraising-guide-1e435b4144ac8037a207c96941006740" target="_blank">Read →</a>
+      </li>
+    </ul>
+  </section>
+
+  <footer>If you're building in deeptech — <a href="mailto:shibil@ahammadshibil.com">reach out</a>.</footer>
+</div>
+
+<!-- ════════ LITERATURE ════════ -->
+<div id="view-literature" class="view">
+
+  <section>
+    <div class="label">Poems</div>
+    <div class="prose" style="margin-bottom:1.8rem;">
+      <p style="font-style:italic;font-size:0.9rem;color:#6a6560;">Written at different points. Some when I had everything figured out, most when I didn't.</p>
+    </div>
+
+    <div class="poem-accordion">
+      <div class="poem-title" onclick="togglePoem(this)">
+        <span>Road to Home</span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="poem-body">I yearn for the road that leads me home,
+Where I once collected pebbles in my palms,
+Spoke to dragonflies as if they'd answer,
+Mud roads alive with whispers and laughter.
+
+The biggest worry was a hungry belly,
+And the fiercest villain wore a teacher's smile,
+But happiness bloomed in a 1-rupee sipups,
+The earth beneath my feet, bare and carefree.
+
+Is it the home I miss,
+Or the innocence that trembled beneath banyan trees?
+Was it the branches that haunted me,
+Or the shadows I'd outgrow?
+
+Does my mother's kitchen still smell the same,
+Or was it my hunger that shifted with time?
+The bed wasn't cushioned, my meals weren't calorie counted,
+Sipups weren't as refined as Japanese matchas,
+But back then, it cradled a heart light as air, made me happy, unbundled,
+Untouched by the weight of knowing too much.
+What have I become?
+
+I chase the road that twists through my memory,
+Wondering if I'm seeking a place
+Or the child who believed
+That dragonflies and pebbles were enough
+To fill the world with magic.
+Oh, I wonder, how far my innocence has gone,
+And whether I'll ever find that barefoot boy again.</div>
+    </div>
+
+    <div class="poem-accordion">
+      <div class="poem-title" onclick="togglePoem(this)">
+        <span>Introvert</span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="poem-body">Oh dear life
+I was lonely,
+But claimed it was my way—
+An introvert, an identity I swayed,
+In shadows I chose to stay.
+
+Never laughed too loud,
+Never dressed too strange,
+Kept my thoughts locked tight,
+Afraid of their gaze's range.
+
+I hid from laughing my heart out,
+For fear of looking weak,
+Held back every burst of life,
+So no one could critique.
+
+Yet deep within, a whisper stirred—
+The truth, too sharp to flee,
+That all the brightest souls I knew
+Were chained, just like me.
+
+Afraid of being ridiculous,
+We caged our inner fire,
+Masters of intellect,
+Yet bound by silent mire.
+
+For life, as Dostoevsky said,
+Is bitter in this fight—
+To fear the laugh, the careless glance,
+Is to turn from inner light.
+
+We hide from joy, we hide from pain,
+Afraid of life's wild kiss,
+And in the quiet of our pride,
+We drown in our abyss.
+
+So laugh with your hearts,
+Love without fear,
+Life's beauty waits for those who dare
+To truly see and hear.</div>
+    </div>
+
+    <div class="poem-accordion">
+      <div class="poem-title" onclick="togglePoem(this)">
+        <span>You ♡</span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="poem-body">If I begin again, right from the start,
+Could I somehow find a place in your heart?
+Though I stutter or search for the right words,
+Will you see beyond the battles, past my swords?
+
+I always pause before my heart's laid bare,
+Will you hear the unspoken, if you care?
+If I sing you lullabies soft and true,
+Will you find your home, somewhere in me too?
+
+On a quiet evening, tea for two,
+If I bring roses, just for you,
+With bangles bright red, a gift to wear,
+Would you flaunt them without a care?
+
+There's something I've longed to say to you,
+Could you wait for me just a moment or two?
+If I begin again, right from the start,
+And tell you I love your voice, your art,
+Will you sing me songs to call my own?
+Could I, in you, find a place to call home?
+
+I sulk at times, but please don't mind,
+Could I be your man, steady and kind?
+The one who stands behind, through it all,
+Will you catch me when I start to fall?</div>
+    </div>
+
+    <div class="poem-accordion">
+      <div class="poem-title" onclick="togglePoem(this)">
+        <span>Wallflower</span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="poem-body">Wallflowers, why are you so pretty?
+In this world so harsh and gritty
+Sprouting from cracks unseen,
+Who notices your quiet beauty?
+Blooming without duty.
+
+A shy smile, a gentle nod,
+As crowds rush by, a human flood
+Wallflowers, there you stand
+Unnoticed, yet so grand
+
+Wallflowers all, in stone or skin,
+I'm sorry I've passed you, unseeing
+You remind us, in silent ways,
+That beauty's here, quietly being</div>
+    </div>
+
+    <div class="poem-accordion">
+      <div class="poem-title" onclick="togglePoem(this)">
+        <span>Depression</span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="poem-body">All I wanted was peace,
+"Just be silent!" I shouted.
+A facade, all I craved was silence,
+Oh, you uninvited.
+
+Through my cracks you seep and crawl,
+Despite my patches on the wall.
+Everything feels so heavy, so gray,
+I fake a smile, day by day.
+
+Sad and gloomy, I'm weathering in
+Who are you, this force within?
+Why do you haunt my every breath
+I see my death, a happy deadend.
+
+All I plea is to leave me be,
+Why have you made a home in me?
+I can't remember who I am,
+Maybe I'll never know...</div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="label">More coming</div>
+    <div class="prose">
+      <p style="font-style:italic;font-size:0.9rem;color:#6a6560;">More poems, personal essays, and reflections on life, identity, and what it means to be from where I'm from. Coming when they're ready.</p>
+    </div>
+  </section>
+
+  <footer>All poems original. Written between 2021–2024.</footer>
+</div>
+
+<!-- ════════ BOOKSHELF ════════ -->
+<div id="view-bookshelf" class="view">
+
+  <section>
+    <div class="label">Authors I follow — read everything they write</div>
+    <ul class="reco-list">
+      <li><span class="reco-num">—</span>Naval Ravikant</li>
+      <li><span class="reco-num">—</span>Nassim Nicholas Taleb</li>
+      <li><span class="reco-num">—</span>Richard Feynman</li>
+      <li><span class="reco-num">—</span>Osho</li>
+      <li><span class="reco-num">—</span>Jiddu Krishnamurti</li>
+    </ul>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="label">Books</div>
+    <ul class="reco-list">
+      <li><span class="reco-num">01</span><a href="#" target="_blank">Zero to One</a> — Peter Thiel</li>
+      <li><span class="reco-num">02</span><a href="#" target="_blank">The Hard Thing About Hard Things</a> — Ben Horowitz</li>
+      <li><span class="reco-num">03</span><a href="https://amzn.to/2C0KYUp" target="_blank">The Prophet</a> — Kahlil Gibran</li>
+      <li><span class="reco-num">04</span><a href="#" target="_blank">Book of Secrets</a> — Osho</li>
+      <li><span class="reco-num">05</span><a href="#" target="_blank">Thinking, Fast and Slow</a> — Daniel Kahneman</li>
+      <li><span class="reco-num">06</span><a href="#" target="_blank">Shoe Dog</a> — Phil Knight</li>
+      <li><span class="reco-num">07</span><a href="#" target="_blank">Losing My Virginity</a> — Richard Branson</li>
+      <li><span class="reco-num">08</span><a href="#" target="_blank">Masala Lab</a> — Krish Ashok · Chemistry disguised as cooking. Changed how I see food.</li>
+      <li><span class="reco-num">09</span><a href="#" target="_blank">Venture Deals</a> — Brad Feld</li>
+      <li><span class="reco-num">10</span><a href="#" target="_blank">The Venture Mindset</a> — Ilya Strebulaev</li>
+    </ul>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="label">Podcasts</div>
+    <ul class="reco-list">
+      <li><span class="reco-num">01</span><a href="https://open.spotify.com/show/7Fj0XEuUQLUqoMZQdsLXqp" target="_blank">Acquired</a> — Ben Gilbert & David Rosenthal</li>
+      <li><span class="reco-num">02</span><a href="#" target="_blank">Huberman Lab</a> — Andrew Huberman</li>
+      <li><span class="reco-num">03</span><a href="#" target="_blank">a16z Podcast</a></li>
+      <li><span class="reco-num">04</span><a href="#" target="_blank">3Blue1Brown Podcast</a> — Grant Sanderson</li>
+      <li><span class="reco-num">05</span><a href="#" target="_blank">Business of Biotech</a></li>
+    </ul>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="label">YouTube</div>
+    <ul class="reco-list">
+      <li><span class="reco-num">01</span>Kurzgesagt</li>
+      <li><span class="reco-num">02</span>Big Think</li>
+      <li><span class="reco-num">03</span>3Blue1Brown</li>
+      <li><span class="reco-num">04</span>Sisyphus 55</li>
+      <li><span class="reco-num">05</span>Quanta Magazine</li>
+      <li><span class="reco-num">06</span>Cleo Abram</li>
+      <li><span class="reco-num">07</span>Principles by Ray Dalio</li>
+    </ul>
+  </section>
+
+  <footer>I start a lot of books and don't finish many — and that's okay.</footer>
+</div>
+
+<!-- ════════ NOW ════════ -->
+<div id="view-now" class="view">
+  <section>
+    <div class="label">Now</div>
+    <div class="now-updated">Updated March 2026 · Chennai</div>
+    <div class="now-body">
+      <div class="now-block">
+        <h3>Leaving VC</h3>
+        <p>I've made the decision to leave Speciale Invest this year to found a company in bio-AI. The specific problem space is still being sharpened — the direction is clear. Finishing what's in flight first: deals, a compensation negotiation, a clean exit. VC taught me how to pattern-match across biology, capital, and systems at a pace nothing else would have.</p>
+      </div>
+      <div class="now-block">
+        <h3>In flight</h3>
+        <ul>
+          <li>Closing the Nucleovir IC — AI-designed oncolytic virus platform for solid tumors</li>
+          <li>Running diligence on Sthyr Energy (zinc-air battery, co-investment)</li>
+          <li>Beginning a co-founder search in parallel</li>
+          <li>Writing monthly at <a href="https://atomsandcells.substack.com" target="_blank">Atoms & Cells</a></li>
+        </ul>
+      </div>
+      <div class="now-block">
+        <h3>Reading</h3>
+        <ul>
+          <li>Ibn Khaldun, Braudel — civilization-scale patterns, the long arcs</li>
+          <li>Science fiction as a thinking tool — the genre that takes ideas seriously</li>
+        </ul>
+      </div>
+      <div class="now-block">
+        <h3>Training</h3>
+        <p>Gym, boxing, yoga, swimming — rotating seriously. In pursuit of a triathlon. The body as a system to optimize, not a background process.</p>
+      </div>
+      <div class="now-block">
+        <h3>Thinking about</h3>
+        <p>Whether the right bio-AI problem is infrastructure, tools, or a specific disease area. The pattern that keeps surfacing: biology already solved most of what we're trying to engineer. We're just learning to read the code.</p>
+      </div>
+    </div>
+  </section>
+  <footer>This is a <a href="https://nownownow.com/about" target="_blank">/now page</a>. Updated when things change.</footer>
+</div>
+
+<!-- ════════ CONNECT ════════ -->
+<div id="view-connect" class="view">
+
+  <section>
+    <div class="label">Writing</div>
+    <div class="platform-grid">
+      <a class="platform-card" href="https://atomsandcells.substack.com" target="_blank">
+        <div class="p-platform">Substack</div>
+        <div class="p-title">Atoms & Cells</div>
+        <div class="p-desc">Long-form on biology, AI, and deeptech. Where biology and physics become companies.</div>
+        <span class="p-cta">Subscribe →</span>
+      </a>
+      <a class="platform-card" href="https://medium.com/@shibilahammad" target="_blank">
+        <div class="p-platform">Medium</div>
+        <div class="p-title">@shibilahammad</div>
+        <div class="p-desc">Personal essays, earlier writing, philosophy and science.</div>
+        <span class="p-cta">Read →</span>
+      </a>
+    </div>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="label">Social</div>
+    <div class="social-grid">
+      <a class="social-card" href="https://x.com/ShibilAhammad" target="_blank">
+        <span class="s-platform">Twitter / X</span>
+        <span class="s-handle">@ShibilAhammad</span>
+        <span class="s-desc">Thoughts on bio, capital, and India</span>
+      </a>
+      <a class="social-card" href="https://linkedin.com/in/ahammadshibil" target="_blank">
+        <span class="s-platform">LinkedIn</span>
+        <span class="s-handle">ahammadshibil</span>
+        <span class="s-desc">Professional updates and long-form threads</span>
+      </a>
+      <a class="social-card" href="https://instagram.com/YOUR_HANDLE" target="_blank">
+        <span class="s-platform">Instagram</span>
+        <span class="s-handle">@your_handle ✎</span>
+        <span class="s-desc">Life outside the spreadsheets</span>
+      </a>
+      <a class="social-card" href="https://github.com/ahammadshibil" target="_blank">
+        <span class="s-platform">GitHub</span>
+        <span class="s-handle">ahammadshibil</span>
+        <span class="s-desc">Code, experiments, side projects</span>
+      </a>
+    </div>
+  </section>
+
+  <hr />
+
+  <section>
+    <div class="label">Say hello</div>
+    <div class="prose">
+      <p>Open to conversations on deeptech, biotech investing, bio-AI, or anything at the intersection of biology and capital. Also happy to talk history, poetry, and philosophy.<br><br>
+      Reach me at <a href="mailto:shibil@ahammadshibil.com">shibil@ahammadshibil.com</a> or on <a href="https://x.com/ShibilAhammad" target="_blank">Twitter</a>.</p>
+    </div>
+  </section>
+
+  <footer>Chennai, India</footer>
+</div>
+
+<script>
+  const VIEWS = ['home','about','writing','thesis','literature','bookshelf','now','connect'];
+  const NAV_VIEWS = ['about','writing','thesis','literature','bookshelf','now','connect'];
+
+  function show(view) {
+    VIEWS.forEach(v => document.getElementById('view-'+v).classList.toggle('active', v===view));
+    document.querySelectorAll('.nav-link').forEach((el,i) => el.classList.toggle('active', NAV_VIEWS[i]===view));
+    window.scrollTo(0,0);
+  }
+
+  function filterWriting(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#writing-list li').forEach(li => {
+      li.style.display = (cat==='all' || li.dataset.cat===cat) ? 'block' : 'none';
+      // close any open preview on filter change
+      const p = li.querySelector('.w-preview');
+      if (p) p.classList.remove('open');
     });
-  </script>
+  }
+
+  function togglePreview(rowEl) {
+    const preview = rowEl.nextElementSibling;
+    const isOpen = preview.classList.contains('open');
+    // close all previews first
+    document.querySelectorAll('.w-preview').forEach(p => p.classList.remove('open'));
+    if (!isOpen) preview.classList.add('open');
+  }
+
+  function goWriting(cat) {
+    show('writing');
+    const btn = Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.toLowerCase()===cat);
+    if (btn) filterWriting(cat, btn);
+    else filterWriting('all', document.querySelector('.filter-btn'));
+  }
+
+  function togglePoem(titleEl) {
+    const body = titleEl.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    // close all
+    document.querySelectorAll('.poem-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.poem-title').forEach(t => t.classList.remove('open'));
+    // open this one if it was closed
+    if (!isOpen) {
+      body.classList.add('open');
+      titleEl.classList.add('open');
+    }
+  }
+
+  // DARK MODE
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('theme-btn').textContent = isDark ? '○ light' : '● dark';
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  }
+
+  (function() {
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const useDark = saved === 'dark' || (!saved && prefersDark);
+    if (useDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      const btn = document.getElementById('theme-btn');
+      if (btn) btn.textContent = '● dark';
+    }
+  })();
+
+  // SUBSCRIBE
+  function handleSubscribe() {
+    const email = document.getElementById('sub-email').value.trim();
+    if (!email || !email.includes('@')) {
+      document.getElementById('sub-email').focus();
+      return;
+    }
+    document.getElementById('sub-success').style.display = 'block';
+    setTimeout(() => {
+      window.open('https://atomsandcells.substack.com/subscribe?email=' + encodeURIComponent(email), '_blank');
+    }, 600);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const input = document.getElementById('sub-email');
+    if (input) input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') handleSubscribe();
+    });
+  });
+</script>
 </body>
 </html>
